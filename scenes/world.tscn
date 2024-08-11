@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://celcvehpgmj1n"]
+[gd_scene load_steps=10 format=3 uid="uid://celcvehpgmj1n"]
 
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_jhati"]
 [ext_resource type="Texture2D" uid="uid://crgpb4tyxtmba" path="res://assets/Originalpacmaze.webp" id="2_432ku"]
 [ext_resource type="PackedScene" uid="uid://bxh2egwk5bftk" path="res://scenes/player.tscn" id="2_ps526"]
 [ext_resource type="PackedScene" uid="uid://cgpdsktgyrkny" path="res://scenes/ghosts/red.tscn" id="3_4fnqb"]
-[ext_resource type="PackedScene" uid="uid://h202q5l605wy" path="res://scenes/dor.tscn" id="4_ip0l2"]
+[ext_resource type="PackedScene" uid="uid://h202q5l605wy" path="res://scenes/dot.tscn" id="4_ip0l2"]
 [ext_resource type="PackedScene" uid="uid://dnejcienbvc4o" path="res://scenes/ghosts/pink.tscn" id="4_urqds"]
 [ext_resource type="PackedScene" uid="uid://dwak3bnmb34a4" path="res://scenes/ghosts/orange.tscn" id="5_su4xj"]
 [ext_resource type="PackedScene" uid="uid://dkhgqll2drt7v" path="res://scenes/ghosts/blue.tscn" id="6_pdnxy"]
@@ -16,6 +17,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 45.3
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_jhati")
 
 [node name="Backround" type="Sprite2D" parent="."]
 z_index = -10
@@ -41,7 +43,7 @@ position = Vector2(0, 544)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Red" parent="Enemies" instance=ExtResource("3_4fnqb")]
-position = Vector2(0, -136)
+position = Vector2(0, -168)
 collision_layer = 1
 collision_mask = 1
 

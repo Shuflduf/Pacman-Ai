@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxh2egwk5bftk"]
+[gd_scene load_steps=12 format=3 uid="uid://bxh2egwk5bftk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xvpjn"]
 [ext_resource type="Texture2D" uid="uid://cmbeef2myi45c" path="res://assets/pacman-Sheet.png" id="2_k453q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a78i"]
+size = Vector2(64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0olfe"]
 atlas = ExtResource("2_k453q")
@@ -45,18 +48,35 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a78i"]
-size = Vector2(64, 64)
+[sub_resource type="Curve" id="Curve_qvtl8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.812245, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CurveTexture" id="CurveTexture_4na38"]
+curve = SubResource("Curve_qvtl8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c072k"]
+lifetime_randomness = 1.0
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 32.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+flatness = 0.5
+initial_velocity_min = 36.76
+initial_velocity_max = 80.88
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+scale_min = 20.0
+scale_max = 30.0
+scale_curve = SubResource("CurveTexture_4na38")
+color = Color(1, 0.885, 0.54, 1)
+
+[node name="Player" type="Node2D" groups=["Player"]]
 script = ExtResource("1_xvpjn")
 speed = 300
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.82353, 1.82353)
-sprite_frames = SubResource("SpriteFrames_e6jf2")
-autoplay = "default"
-frame_progress = 0.237575
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -65,6 +85,19 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_7a78i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.82353, 1.82353)
+sprite_frames = SubResource("SpriteFrames_e6jf2")
+autoplay = "default"
+frame_progress = 0.0199722
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_c072k")
+one_shot = true
+explosiveness = 1.0
 
 [connection signal="link_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_link_reached"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_dot_eater_area_entered"]

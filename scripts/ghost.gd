@@ -11,11 +11,15 @@ var counter: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_node("/root/World/Player")
+	player = get_tree().get_first_node_in_group("Player")
 	counter += randf_range(0.0, 0.5)
 
 
 func _process(delta: float) -> void:
+	if !player:
+		player = get_tree().get_first_node_in_group("Player")
+	if player.dead:
+		return
 	counter += delta
 	if counter > 0.5:
 		counter = 0
@@ -34,3 +38,7 @@ func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
 
 func set_target() -> Vector2:
 	return Vector2.ZERO
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	area.owner.die()

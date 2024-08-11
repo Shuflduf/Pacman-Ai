@@ -4,10 +4,13 @@ extends Node2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var speed = 200
 
-
+var dead = true
 var last_dir: Vector2
 
 func _process(delta: float) -> void:
+	if dead:
+		return
+
 	var dir = global_position - agent.get_next_path_position()
 
 	if dir.length_squared() < 1.0:
@@ -18,9 +21,6 @@ func _process(delta: float) -> void:
 	dir *= delta * speed
 	sprite.rotation = atan2(last_dir.y, last_dir.x)
 	sprite.rotation += PI
-
-	print(sprite.rotation)
-
 	position -= dir
 
 
@@ -39,3 +39,13 @@ func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
 
 func _on_dot_eater_area_entered(area: Area2D) -> void:
 	area.owner.queue_free()
+
+func die():
+	dead = true
+	await get_tree().create_timer(0.5).timeout
+	$GPUParticles2D.restart()
+	sprite.hide()
+	await $GPUParticles2D.finished
+	await get_tree().create_timer(0.5).timeout
+	get_parent().reset()
+
