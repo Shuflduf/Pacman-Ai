@@ -44,8 +44,10 @@ func _on_dot_eater_area_entered(area: Area2D) -> void:
 		for i in get_tree().get_nodes_in_group("Ghost"):
 			i.panicing = true
 			i.get_node("Body").modulate = Color.DARK_BLUE
-
-	points.emit(10)
+			i.timer.start()
+		points.emit(30)
+	else:
+		points.emit(10)
 	area.owner.queue_free()
 
 func die():

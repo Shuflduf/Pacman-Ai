@@ -29,6 +29,9 @@ func add_points(amount: int):
 			var best_score_bits = FileAccess.get_file_as_string("user://points")
 			best_score = best_score_bits.to_int()
 
+	if amount == 30:
+		ui.start_timer()
+
 	score += amount
 	ui.score.text = "score: " + str(score)
 
@@ -46,9 +49,4 @@ func reset():
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	area.owner.collision_mask = 3
-	area.owner.collision_layer = 3
-	area.owner.get_node("Body").show()
-	area.owner.panicing = false
-	area.owner.speed_mult = 1
-	area.owner.get_node("Body").modulate = area.owner.saved_colour
+	area.owner.come_back()

@@ -1,6 +1,7 @@
 class_name Ghost
 extends CharacterBody2D
 
+@onready var timer: Timer = $Timer
 @onready var tree: AnimationTree = $AnimationTree
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @export var speed = 200
@@ -61,3 +62,13 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		$Body.hide()
 		speed_mult = 2
 
+func come_back():
+	collision_mask = 3
+	collision_layer = 3
+	$Body.show()
+	panicing = false
+	speed_mult = 1
+	$Body.modulate = saved_colour
+
+func _on_timer_timeout() -> void:
+	come_back()
