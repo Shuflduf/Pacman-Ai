@@ -12,12 +12,12 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.is_pressed():
-			if event.button_mask == MOUSE_BUTTON_LEFT:
-				var target = get_parent().make_input_local(event).position
-				agent.target_position = target
-				#print("Player: ", target)
+
+	if event is InputEventMouse:
+		if event.button_mask == MOUSE_BUTTON_LEFT:
+		#if event.is_pressed():
+			var target = get_parent().make_input_local(event).position
+			agent.target_position = target
 
 
 func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
