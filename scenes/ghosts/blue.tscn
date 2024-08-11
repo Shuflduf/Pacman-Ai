@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwak3bnmb34a4"]
+
+[ext_resource type="PackedScene" uid="uid://dm3xuufaixbmf" path="res://scenes/ghost.tscn" id="1_3fd48"]
+[ext_resource type="Script" path="res://scripts/ghosts/blue.gd" id="2_0jte7"]
+
+[node name="Blue" instance=ExtResource("1_3fd48")]
+script = ExtResource("2_0jte7")
+corner = Vector2(-800, 928)
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0, 0.483333, 1, 1)
