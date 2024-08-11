@@ -152,7 +152,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Ghost" type="CharacterBody2D"]
+[node name="Ghost" type="CharacterBody2D" groups=["Ghost"]]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_det8e")
@@ -182,7 +182,7 @@ libraries = {
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_yrm23")
 autoplay = "default"
-frame_progress = 0.629601
+frame_progress = 0.461023
 
 [node name="Eyes" type="Sprite2D" parent="."]
 position = Vector2(0, 8)

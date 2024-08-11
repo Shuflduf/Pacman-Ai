@@ -40,6 +40,10 @@ func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
 
 
 func _on_dot_eater_area_entered(area: Area2D) -> void:
+	if area.owner.name.begins_with("BigDot"):
+		for i in get_tree().get_nodes_in_group("Ghost"):
+			i.panicing = true
+
 	points.emit(10)
 	area.owner.queue_free()
 

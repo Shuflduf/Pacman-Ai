@@ -43,3 +43,10 @@ func reset():
 	get_tree().root.add_child(load("res://scenes/world.tscn").instantiate())
 	queue_free()
 
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	area.owner.collision_layer = 3
+	area.owner.get_node("Body").show()
+	area.owner.panicing = false
+	area.owner.speed_mult = 1

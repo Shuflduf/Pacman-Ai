@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://celcvehpgmj1n"]
+[gd_scene load_steps=13 format=3 uid="uid://celcvehpgmj1n"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_jhati"]
 [ext_resource type="Texture2D" uid="uid://crgpb4tyxtmba" path="res://assets/Originalpacmaze.webp" id="2_432ku"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwak3bnmb34a4" path="res://scenes/ghosts/orange.tscn" id="5_su4xj"]
 [ext_resource type="PackedScene" uid="uid://dkhgqll2drt7v" path="res://scenes/ghosts/blue.tscn" id="6_pdnxy"]
 [ext_resource type="PackedScene" uid="uid://bj2m6wuksqjl" path="res://scenes/ui.tscn" id="9_e7ogw"]
+[ext_resource type="PackedScene" uid="uid://cw67finvff0xx" path="res://scenes/big_dot.tscn" id="9_qdt21"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dbptg"]
 vertices = PackedVector2Array(781, -589, 499, -589, -499, -627, -461, -627, 819, 947, -819, 947, -115, 909, -77, 909, -781, 909, 461, 563, 307, 563, -115, 525, -77, 525, 781, 371, 499, 371, 269, 333, 307, 333, 963, -13, 499, -13, 461, -51, 499, -51, 269, -205, 19, -205, -115, -243, -77, -243, 781, -627, 819, -883, 819, -397, 781, -845, -115, 371, -461, 371, -307, 333, -269, 333, 269, 141, 307, -13, -499, -435, -499, -589, -461, -589, -461, -51, 461, 525, 461, 371, 499, 717, 115, 371, 77, 333, -461, 333, 77, -883, 499, -845, 781, -435, 499, -397, 499, -435, 307, -589, 307, -397, 269, -435, 269, -589, 115, -397, 77, -435, 77, -243, 115, -243, 819, 333, 819, 563, 781, 525, 499, 333, 461, 333, 77, 525, 115, 525, 691, 563, 653, 525, 653, 717, 691, 717, 819, 717, 781, 909, 781, 755, 461, 755, 307, 755, 269, 717, 269, 563, -269, 563, -461, 525, 115, 755, 77, 717, 77, 909, 115, 909, -461, 563, -461, 755, -499, 717, -499, 371, -781, 755, -653, 717, -819, 717, -691, 717, 963, -51, 461, -589, -269, -589, 461, -13, 307, -51, 307, -243, 19, -83, 147, -83, 147, 19, -147, 19, -147, -83, -19, -83, -19, -205, -269, -205, -307, -243, -307, -51, -269, 141, -653, 525, -691, 563, -781, 525, -819, 563, -819, 333, -781, 371, -499, 333, -499, -13, -963, -13, -963, -51, -499, -51, 499, -627, 461, -627, 461, -845, 115, -845, 77, -627, 115, -627, -77, -435, -115, -397, -269, -435, -307, -397, -307, -589, -781, -627, -781, -589, 269, 179, -269, 179, -307, -13, -77, 333, -461, -13, -499, -397, -77, -627, -115, -627, -77, -883, -115, -845, -819, -883, -461, -845, -77, 717, -115, 755, -269, 717, -307, 755, -307, 563, -781, -435, -819, -397, -781, -845, -499, -845)
@@ -16,6 +17,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-864, 992, 864, 992, 864, 672, 736, 672, 736, 608, 864, 608, 864, 288, 544, 288, 544, 32, 1008, 32, 1008, -96, 544, -96, 544, -352, 864, -352, 864, -928, 32, -928, 32, -672, -32, -672, -32, -928, -864, -928, -864, -352, -544, -352, -544, -96, -1008, -96, -1008, 32, -544, 32, -544, 288, -864, 288, -864, 608, -736, 608, -736, 672, -864, 672), PackedVector2Array(-544, -800, -544, -672, -736, -672, -736, -800), PackedVector2Array(-544, -544, -544, -480, -736, -480, -736, -544), PackedVector2Array(-416, -800, -160, -800, -160, -672, -416, -672), PackedVector2Array(-352, -544, -352, -352, -160, -352, -160, -288, -352, -288, -352, -96, -416, -96, -416, -544), PackedVector2Array(-224, -544, 224, -544, 224, -480, 32, -480, 32, -288, -32, -288, -32, -480, -224, -480), PackedVector2Array(-224, 224, 224, 224, 224, 288, 32, 288, 32, 480, -32, 480, -32, 288, -224, 288), PackedVector2Array(-352, 32, -352, 288, -416, 288, -416, 32), PackedVector2Array(352, 32, 416, 32, 416, 288, 352, 288), PackedVector2Array(416, -96, 352, -96, 352, -288, 160, -288, 160, -352, 352, -352, 352, -544, 416, -544), PackedVector2Array(544, -544, 736, -544, 736, -480, 544, -480), PackedVector2Array(-160, 416, -160, 480, -416, 480, -416, 416), PackedVector2Array(-352, 608, -352, 800, -160, 800, -160, 864, -736, 864, -736, 800, -416, 800, -416, 608), PackedVector2Array(-544, 672, -608, 672, -608, 480, -736, 480, -736, 416, -544, 416), PackedVector2Array(-32, 672, -224, 672, -224, 608, 224, 608, 224, 672, 32, 672, 32, 864, -32, 864), PackedVector2Array(352, 608, 416, 608, 416, 800, 736, 800, 736, 864, 160, 864, 160, 800, 352, 800), PackedVector2Array(544, 672, 544, 416, 736, 416, 736, 480, 608, 480, 608, 672), PackedVector2Array(416, 416, 416, 480, 160, 480, 160, 416), PackedVector2Array(-64, -160, -64, -128, -192, -128, -192, 64, 192, 64, 192, -128, 64, -128, 64, -160, 224, -160, 224, 96, -224, 96, -224, -160), PackedVector2Array(736, -800, 736, -672, 544, -672, 544, -800), PackedVector2Array(416, -800, 416, -672, 160, -672, 160, -800)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 45.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjv6p"]
+size = Vector2(416, 201)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_jhati")
@@ -157,9 +161,6 @@ position = Vector2(-800, -608)
 
 [node name="Dot31" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(-800, -672)
-
-[node name="Dot32" parent="Dots" instance=ExtResource("4_ip0l2")]
-position = Vector2(-800, -736)
 
 [node name="Dot33" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(-800, -800)
@@ -340,9 +341,6 @@ position = Vector2(-736, 352)
 
 [node name="Dot63" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(-800, 416)
-
-[node name="Dot64" parent="Dots" instance=ExtResource("4_ip0l2")]
-position = Vector2(-800, 480)
 
 [node name="Dot65" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(-800, 544)
@@ -620,9 +618,6 @@ position = Vector2(736, -864)
 [node name="Dot145" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(800, -864)
 
-[node name="Dot134" parent="Dots" instance=ExtResource("4_ip0l2")]
-position = Vector2(800, -736)
-
 [node name="Dot135" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(800, -672)
 
@@ -776,9 +771,6 @@ position = Vector2(800, 352)
 [node name="Dot239" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(800, 416)
 
-[node name="Dot240" parent="Dots" instance=ExtResource("4_ip0l2")]
-position = Vector2(800, 480)
-
 [node name="Dot241" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(800, 544)
 
@@ -800,9 +792,33 @@ position = Vector2(480, 160)
 [node name="Dot247" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(544, 352)
 
+[node name="BigDots" type="Node2D" parent="."]
+
+[node name="BigDot" parent="BigDots" instance=ExtResource("9_qdt21")]
+position = Vector2(-800, -736)
+
+[node name="BigDot2" parent="BigDots" instance=ExtResource("9_qdt21")]
+position = Vector2(800, -736)
+
+[node name="BigDot3" parent="BigDots" instance=ExtResource("9_qdt21")]
+position = Vector2(800, 480)
+
+[node name="BigDot4" parent="BigDots" instance=ExtResource("9_qdt21")]
+position = Vector2(-800, 480)
+
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(800, 928)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("9_e7ogw")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -21.5)
+shape = SubResource("RectangleShape2D_bjv6p")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
