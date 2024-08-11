@@ -1,5 +1,5 @@
 class_name Ghost
-extends Node2D
+extends CharacterBody2D
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @export var speed = 200
@@ -22,9 +22,10 @@ func _process(delta: float) -> void:
 
 	var dir = global_position - agent.get_next_path_position()
 	dir = dir.normalized()
-	dir *= delta * speed
+	#dir *= delta * speed
+	velocity = -dir * speed
 
-	position -= dir
+	move_and_slide()
 
 
 func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:

@@ -12,7 +12,5 @@ func _ready() -> void:
 func set_target() -> Vector2:
 	var dir = pink.set_target() - red.global_position
 	dir *= 2
-	print(dir)
-
 
 	return dir
