@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @export var speed = 200
+@export var corner = Vector2.ZERO
 
 var player: Node2D
 var counter: float

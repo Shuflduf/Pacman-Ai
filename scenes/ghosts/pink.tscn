@@ -5,6 +5,7 @@
 
 [node name="Pink" instance=ExtResource("1_tr07i")]
 script = ExtResource("2_acf40")
+corner = Vector2(-800, -864)
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0.983334, 0, 1, 1)
