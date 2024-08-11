@@ -21,9 +21,8 @@ func _process(delta: float) -> void:
 		agent.target_position = set_target()
 
 	var dir = global_position - agent.get_next_path_position()
-	dir = dir.normalized()
-	#dir *= delta * speed
-	velocity = -dir * speed
+	dir = -dir.normalized()
+	velocity = dir * speed
 
 	move_and_slide()
 

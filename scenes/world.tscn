@@ -36,26 +36,27 @@ travel_cost = 0.0
 zoom = Vector2(0.375, 0.375)
 
 [node name="Player" parent="." instance=ExtResource("2_ps526")]
+position = Vector2(0, 544)
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Red" parent="Enemies" instance=ExtResource("3_4fnqb")]
-position = Vector2(480, -32)
+position = Vector2(0, -136)
 collision_layer = 1
 collision_mask = 1
 
 [node name="Pink" parent="Enemies" instance=ExtResource("4_urqds")]
-position = Vector2(-480, -32)
+position = Vector2(0, -32)
 collision_layer = 1
 collision_mask = 1
 
 [node name="Orange" parent="Enemies" instance=ExtResource("5_su4xj")]
-position = Vector2(224, -416)
+position = Vector2(104, -32)
 collision_layer = 1
 collision_mask = 1
 
 [node name="Blue" parent="Enemies" instance=ExtResource("6_pdnxy")]
-position = Vector2(32, 544)
+position = Vector2(-104, -32)
 collision_layer = 1
 collision_mask = 1
 
@@ -697,9 +698,6 @@ position = Vector2(352, 352)
 [node name="Dot212" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(96, 352)
 
-[node name="Dot213" parent="Dots" instance=ExtResource("4_ip0l2")]
-position = Vector2(-32, 544)
-
 [node name="Dot214" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(288, 544)
 
@@ -738,9 +736,6 @@ position = Vector2(224, 544)
 
 [node name="Dot226" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(160, 544)
-
-[node name="Dot227" parent="Dots" instance=ExtResource("4_ip0l2")]
-position = Vector2(32, 544)
 
 [node name="Dot228" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(96, 544)
