@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
-
+@export var speed = 200
 
 func _process(delta: float) -> void:
 	var dir = global_position - agent.get_next_path_position()
