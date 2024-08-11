@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://celcvehpgmj1n"]
+[gd_scene load_steps=11 format=3 uid="uid://celcvehpgmj1n"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_jhati"]
 [ext_resource type="Texture2D" uid="uid://crgpb4tyxtmba" path="res://assets/Originalpacmaze.webp" id="2_432ku"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dnejcienbvc4o" path="res://scenes/ghosts/pink.tscn" id="4_urqds"]
 [ext_resource type="PackedScene" uid="uid://dwak3bnmb34a4" path="res://scenes/ghosts/orange.tscn" id="5_su4xj"]
 [ext_resource type="PackedScene" uid="uid://dkhgqll2drt7v" path="res://scenes/ghosts/blue.tscn" id="6_pdnxy"]
+[ext_resource type="PackedScene" uid="uid://bj2m6wuksqjl" path="res://scenes/ui.tscn" id="9_e7ogw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dbptg"]
 vertices = PackedVector2Array(781, -589, 499, -589, -499, -627, -461, -627, 819, 947, -819, 947, -115, 909, -77, 909, -781, 909, 461, 563, 307, 563, -115, 525, -77, 525, 781, 371, 499, 371, 269, 333, 307, 333, 963, -13, 499, -13, 461, -51, 499, -51, 269, -205, 19, -205, -115, -243, -77, -243, 781, -627, 819, -883, 819, -397, 781, -845, -115, 371, -461, 371, -307, 333, -269, 333, 269, 141, 307, -13, -499, -435, -499, -589, -461, -589, -461, -51, 461, 525, 461, 371, 499, 717, 115, 371, 77, 333, -461, 333, 77, -883, 499, -845, 781, -435, 499, -397, 499, -435, 307, -589, 307, -397, 269, -435, 269, -589, 115, -397, 77, -435, 77, -243, 115, -243, 819, 333, 819, 563, 781, 525, 499, 333, 461, 333, 77, 525, 115, 525, 691, 563, 653, 525, 653, 717, 691, 717, 819, 717, 781, 909, 781, 755, 461, 755, 307, 755, 269, 717, 269, 563, -269, 563, -461, 525, 115, 755, 77, 717, 77, 909, 115, 909, -461, 563, -461, 755, -499, 717, -499, 371, -781, 755, -653, 717, -819, 717, -691, 717, 963, -51, 461, -589, -269, -589, 461, -13, 307, -51, 307, -243, 19, -83, 147, -83, 147, 19, -147, 19, -147, -83, -19, -83, -19, -205, -269, -205, -307, -243, -307, -51, -269, 141, -653, 525, -691, 563, -781, 525, -819, 563, -819, 333, -781, 371, -499, 333, -499, -13, -963, -13, -963, -51, -499, -51, 499, -627, 461, -627, 461, -845, 115, -845, 77, -627, 115, -627, -77, -435, -115, -397, -269, -435, -307, -397, -307, -589, -781, -627, -781, -589, 269, 179, -269, 179, -307, -13, -77, 333, -461, -13, -499, -397, -77, -627, -115, -627, -77, -883, -115, -845, -819, -883, -461, -845, -77, 717, -115, 755, -269, 717, -307, 755, -307, 563, -781, -435, -819, -397, -781, -845, -499, -845)
@@ -801,3 +802,7 @@ position = Vector2(544, 352)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(800, 928)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("9_e7ogw")]

@@ -10,8 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Pacman-ai"
+config/name="Pacman I Think"
+config/version="1.0.0"
 run/main_scene="res://scenes/world.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="PacmanIThink"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

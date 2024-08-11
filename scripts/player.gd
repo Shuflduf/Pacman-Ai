@@ -4,6 +4,8 @@ extends Node2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var speed = 200
 
+signal points(amount: int)
+
 var dead = true
 var last_dir: Vector2
 
@@ -38,6 +40,7 @@ func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
 
 
 func _on_dot_eater_area_entered(area: Area2D) -> void:
+	points.emit(10)
 	area.owner.queue_free()
 
 func die():
