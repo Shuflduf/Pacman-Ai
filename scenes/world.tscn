@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://celcvehpgmj1n"]
+[gd_scene load_steps=6 format=3 uid="uid://celcvehpgmj1n"]
 
 [ext_resource type="Texture2D" uid="uid://crgpb4tyxtmba" path="res://assets/Originalpacmaze.webp" id="2_432ku"]
 [ext_resource type="PackedScene" uid="uid://bxh2egwk5bftk" path="res://scenes/player.tscn" id="2_ps526"]
 [ext_resource type="PackedScene" uid="uid://dm3xuufaixbmf" path="res://scenes/enemy.tscn" id="3_u364s"]
+[ext_resource type="PackedScene" uid="uid://h202q5l605wy" path="res://scenes/dor.tscn" id="4_ip0l2"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dbptg"]
 vertices = PackedVector2Array(781, -589, 499, -589, -499, -627, -461, -627, 819, 947, -819, 947, -115, 909, -77, 909, -781, 909, 461, 563, 307, 563, -115, 525, -77, 525, 781, 371, 499, 371, 269, 333, 307, 333, 963, -13, 499, -13, 461, -51, 499, -51, 269, -205, 19, -205, -115, -243, -77, -243, 781, -627, 819, -883, 819, -397, 781, -845, -115, 371, -461, 371, -307, 333, -269, 333, 269, 141, 307, -13, -499, -435, -499, -589, -461, -589, -461, -51, 461, 525, 461, 371, 499, 717, 115, 371, 77, 333, -461, 333, 77, -883, 499, -845, 781, -435, 499, -397, 499, -435, 307, -589, 307, -397, 269, -435, 269, -589, 115, -397, 77, -435, 77, -243, 115, -243, 819, 333, 819, 563, 781, 525, 499, 333, 461, 333, 77, 525, 115, 525, 691, 563, 653, 525, 653, 717, 691, 717, 819, 717, 781, 909, 781, 755, 461, 755, 307, 755, 269, 717, 269, 563, -269, 563, -461, 525, 115, 755, 77, 717, 77, 909, 115, 909, -461, 563, -461, 755, -499, 717, -499, 371, -781, 755, -653, 717, -819, 717, -691, 717, 963, -51, 461, -589, -269, -589, 461, -13, 307, -51, 307, -243, 19, -83, 147, -83, 147, 19, -147, 19, -147, -83, -19, -83, -19, -205, -269, -205, -307, -243, -307, -51, -269, 141, -653, 525, -691, 563, -781, 525, -819, 563, -819, 333, -781, 371, -499, 333, -499, -13, -963, -13, -963, -51, -499, -51, 499, -627, 461, -627, 461, -845, 115, -845, 77, -627, 115, -627, -77, -435, -115, -397, -269, -435, -307, -397, -307, -589, -781, -627, -781, -589, 269, 179, -269, 179, -307, -13, -77, 333, -461, -13, -499, -397, -77, -627, -115, -627, -77, -883, -115, -845, -819, -883, -461, -845, -77, 717, -115, 755, -269, 717, -307, 755, -307, 563, -781, -435, -819, -397, -781, -845, -499, -845)
@@ -14,11 +15,13 @@ agent_radius = 45.3
 [node name="World" type="Node2D"]
 
 [node name="Backround" type="Sprite2D" parent="."]
+z_index = -10
 texture_filter = 1
 scale = Vector2(8, 8)
 texture = ExtResource("2_432ku")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_dbptg")
 
 [node name="NavigationLink2D" type="NavigationLink2D" parent="."]
@@ -35,3 +38,746 @@ zoom = Vector2(0.375, 0.375)
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("3_u364s")]
 position = Vector2(480, -208)
+
+[node name="Dots" type="Node2D" parent="."]
+
+[node name="Dot" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, -864)
+
+[node name="Dot2" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-736, -864)
+
+[node name="Dot4" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-672, -864)
+
+[node name="Dot5" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-608, -864)
+
+[node name="Dot6" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-544, -864)
+
+[node name="Dot3" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -864)
+
+[node name="Dot7" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-416, -864)
+
+[node name="Dot8" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-352, -864)
+
+[node name="Dot9" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, -864)
+
+[node name="Dot10" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-224, -864)
+
+[node name="Dot11" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-160, -864)
+
+[node name="Dot12" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, -864)
+
+[node name="Dot13" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, -800)
+
+[node name="Dot14" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, -736)
+
+[node name="Dot15" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, -672)
+
+[node name="Dot16" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, -608)
+
+[node name="Dot17" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-160, -608)
+
+[node name="Dot18" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-224, -608)
+
+[node name="Dot19" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, -608)
+
+[node name="Dot20" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-352, -608)
+
+[node name="Dot21" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-416, -608)
+
+[node name="Dot22" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -608)
+
+[node name="Dot23" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -672)
+
+[node name="Dot24" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -736)
+
+[node name="Dot25" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -800)
+
+[node name="Dot26" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-544, -608)
+
+[node name="Dot27" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-608, -608)
+
+[node name="Dot28" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-672, -608)
+
+[node name="Dot29" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-736, -608)
+
+[node name="Dot30" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, -608)
+
+[node name="Dot31" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, -672)
+
+[node name="Dot32" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, -736)
+
+[node name="Dot33" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, -800)
+
+[node name="Dot34" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, -544)
+
+[node name="Dot35" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, -480)
+
+[node name="Dot36" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, -416)
+
+[node name="Dot37" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-736, -416)
+
+[node name="Dot38" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-672, -416)
+
+[node name="Dot39" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-608, -416)
+
+[node name="Dot40" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-544, -416)
+
+[node name="Dot41" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -480)
+
+[node name="Dot42" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -544)
+
+[node name="Dot43" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -416)
+
+[node name="Dot44" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -352)
+
+[node name="Dot45" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -288)
+
+[node name="Dot46" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -224)
+
+[node name="Dot47" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -160)
+
+[node name="Dot48" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -96)
+
+[node name="Dot49" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, -32)
+
+[node name="Dot50" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 32)
+
+[node name="Dot51" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 32)
+
+[node name="Dot52" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 96)
+
+[node name="Dot53" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 160)
+
+[node name="Dot54" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 224)
+
+[node name="Dot55" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 288)
+
+[node name="Dot56" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 352)
+
+[node name="Dot57" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, 480)
+
+[node name="Dot182" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, 544)
+
+[node name="Dot196" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-160, 736)
+
+[node name="Dot201" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, 800)
+
+[node name="Dot203" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, 864)
+
+[node name="Dot202" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, 736)
+
+[node name="Dot197" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-224, 736)
+
+[node name="Dot198" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, 736)
+
+[node name="Dot199" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, 672)
+
+[node name="Dot200" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, 608)
+
+[node name="Dot187" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 608)
+
+[node name="Dot192" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-544, 736)
+
+[node name="Dot195" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-608, 736)
+
+[node name="Dot193" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 736)
+
+[node name="Dot194" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 672)
+
+[node name="Dot188" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 544)
+
+[node name="Dot189" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 480)
+
+[node name="Dot190" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-416, 544)
+
+[node name="Dot191" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-352, 544)
+
+[node name="Dot183" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-224, 544)
+
+[node name="Dot184" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-160, 544)
+
+[node name="Dot185" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, 544)
+
+[node name="Dot186" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 416)
+
+[node name="Dot175" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, 416)
+
+[node name="Dot176" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, 352)
+
+[node name="Dot177" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-160, 352)
+
+[node name="Dot178" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-224, 352)
+
+[node name="Dot179" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, 352)
+
+[node name="Dot180" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-352, 352)
+
+[node name="Dot181" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-416, 352)
+
+[node name="Dot58" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-544, 352)
+
+[node name="Dot59" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-608, 352)
+
+[node name="Dot60" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, 352)
+
+[node name="Dot61" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-672, 352)
+
+[node name="Dot62" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-736, 352)
+
+[node name="Dot63" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, 416)
+
+[node name="Dot64" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, 480)
+
+[node name="Dot65" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, 544)
+
+[node name="Dot66" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-736, 544)
+
+[node name="Dot67" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-672, 544)
+
+[node name="Dot68" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-672, 608)
+
+[node name="Dot69" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-672, 672)
+
+[node name="Dot70" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-672, 736)
+
+[node name="Dot71" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-736, 736)
+
+[node name="Dot72" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, 736)
+
+[node name="Dot73" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, 800)
+
+[node name="Dot74" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, 864)
+
+[node name="Dot75" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-800, 928)
+
+[node name="Dot76" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-736, 928)
+
+[node name="Dot77" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-672, 928)
+
+[node name="Dot78" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-608, 928)
+
+[node name="Dot79" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-544, 928)
+
+[node name="Dot80" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-480, 928)
+
+[node name="Dot81" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-416, 928)
+
+[node name="Dot82" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-352, 928)
+
+[node name="Dot83" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, 928)
+
+[node name="Dot84" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-224, 928)
+
+[node name="Dot85" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-160, 928)
+
+[node name="Dot86" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, 928)
+
+[node name="Dot87" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-32, 928)
+
+[node name="Dot88" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(32, 928)
+
+[node name="Dot89" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, 928)
+
+[node name="Dot90" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(160, 928)
+
+[node name="Dot91" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(224, 928)
+
+[node name="Dot92" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, 928)
+
+[node name="Dot93" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(352, 928)
+
+[node name="Dot94" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(416, 928)
+
+[node name="Dot95" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 928)
+
+[node name="Dot96" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(544, 928)
+
+[node name="Dot97" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(608, 928)
+
+[node name="Dot98" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(672, 928)
+
+[node name="Dot99" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(736, 928)
+
+[node name="Dot100" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, 928)
+
+[node name="Dot101" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, 864)
+
+[node name="Dot102" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, 800)
+
+[node name="Dot103" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, 736)
+
+[node name="Dot104" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(736, 736)
+
+[node name="Dot105" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(672, 736)
+
+[node name="Dot106" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(608, 736)
+
+[node name="Dot107" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(544, 736)
+
+[node name="Dot108" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 736)
+
+[node name="Dot109" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 672)
+
+[node name="Dot110" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 608)
+
+[node name="Dot111" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 544)
+
+[node name="Dot112" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 480)
+
+[node name="Dot113" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 416)
+
+[node name="Dot114" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 352)
+
+[node name="Dot115" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 288)
+
+[node name="Dot116" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 224)
+
+[node name="Dot117" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 32)
+
+[node name="Dot118" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -416)
+
+[node name="Dot119" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(736, -416)
+
+[node name="Dot126" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(608, -608)
+
+[node name="Dot133" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, -800)
+
+[node name="Dot140" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -864)
+
+[node name="Dot146" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(416, -608)
+
+[node name="Dot147" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(224, -864)
+
+[node name="Dot151" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, -672)
+
+[node name="Dot156" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, -608)
+
+[node name="Dot159" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(224, -608)
+
+[node name="Dot161" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, -608)
+
+[node name="Dot163" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(224, -416)
+
+[node name="Dot167" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, -416)
+
+[node name="Dot169" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-224, -416)
+
+[node name="Dot174" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, -544)
+
+[node name="Dot172" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, -416)
+
+[node name="Dot173" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-288, -480)
+
+[node name="Dot170" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-160, -416)
+
+[node name="Dot171" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-96, -416)
+
+[node name="Dot168" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(160, -416)
+
+[node name="Dot164" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, -416)
+
+[node name="Dot165" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, -480)
+
+[node name="Dot166" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, -544)
+
+[node name="Dot162" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(352, -608)
+
+[node name="Dot160" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(160, -608)
+
+[node name="Dot157" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(32, -608)
+
+[node name="Dot158" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-32, -608)
+
+[node name="Dot152" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, -736)
+
+[node name="Dot153" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, -800)
+
+[node name="Dot154" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, -864)
+
+[node name="Dot155" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(160, -864)
+
+[node name="Dot148" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, -864)
+
+[node name="Dot149" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(352, -864)
+
+[node name="Dot150" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(416, -864)
+
+[node name="Dot141" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(544, -864)
+
+[node name="Dot142" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(608, -864)
+
+[node name="Dot143" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(672, -864)
+
+[node name="Dot144" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(736, -864)
+
+[node name="Dot145" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, -864)
+
+[node name="Dot134" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, -736)
+
+[node name="Dot135" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, -672)
+
+[node name="Dot136" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -800)
+
+[node name="Dot137" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -736)
+
+[node name="Dot138" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -672)
+
+[node name="Dot139" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(544, -608)
+
+[node name="Dot127" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(672, -608)
+
+[node name="Dot128" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, -608)
+
+[node name="Dot129" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(736, -608)
+
+[node name="Dot130" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, -544)
+
+[node name="Dot131" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, -480)
+
+[node name="Dot132" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, -416)
+
+[node name="Dot120" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(672, -416)
+
+[node name="Dot121" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -608)
+
+[node name="Dot122" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -544)
+
+[node name="Dot123" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(608, -416)
+
+[node name="Dot124" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -480)
+
+[node name="Dot125" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(544, -416)
+
+[node name="Dot204" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -352)
+
+[node name="Dot205" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -288)
+
+[node name="Dot206" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -224)
+
+[node name="Dot207" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -160)
+
+[node name="Dot208" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -96)
+
+[node name="Dot209" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, -32)
+
+[node name="Dot210" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 96)
+
+[node name="Dot211" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(352, 352)
+
+[node name="Dot212" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, 352)
+
+[node name="Dot213" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(-32, 544)
+
+[node name="Dot214" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, 544)
+
+[node name="Dot219" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(224, 736)
+
+[node name="Dot222" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, 736)
+
+[node name="Dot224" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, 800)
+
+[node name="Dot225" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, 864)
+
+[node name="Dot223" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(160, 736)
+
+[node name="Dot220" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, 736)
+
+[node name="Dot221" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, 672)
+
+[node name="Dot216" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, 608)
+
+[node name="Dot217" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(416, 544)
+
+[node name="Dot218" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(352, 544)
+
+[node name="Dot215" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(224, 544)
+
+[node name="Dot226" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(160, 544)
+
+[node name="Dot227" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(32, 544)
+
+[node name="Dot228" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, 544)
+
+[node name="Dot229" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, 480)
+
+[node name="Dot230" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(96, 416)
+
+[node name="Dot231" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(160, 352)
+
+[node name="Dot232" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(224, 352)
+
+[node name="Dot233" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(288, 352)
+
+[node name="Dot234" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(416, 352)
+
+[node name="Dot235" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(608, 352)
+
+[node name="Dot236" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(672, 352)
+
+[node name="Dot237" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(736, 352)
+
+[node name="Dot238" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, 352)
+
+[node name="Dot239" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, 416)
+
+[node name="Dot240" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, 480)
+
+[node name="Dot241" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(800, 544)
+
+[node name="Dot242" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(736, 544)
+
+[node name="Dot243" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(672, 544)
+
+[node name="Dot244" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(672, 608)
+
+[node name="Dot245" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(672, 672)
+
+[node name="Dot246" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(480, 160)
+
+[node name="Dot247" parent="Dots" instance=ExtResource("4_ip0l2")]
+position = Vector2(544, 352)

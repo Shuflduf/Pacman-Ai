@@ -4,21 +4,23 @@ extends Node2D
 @export var speed = 200
 
 var player: Node2D
-var counter: int
+var counter: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_node("/root/World/Player")
+	counter += randf_range(0.0, 0.5)
 
 
-func _physics_process(delta: float) -> void:
-	counter += 1
-	if counter % 10 == 0:
+func _process(delta: float) -> void:
+	counter += delta
+	if counter > 0.5:
+		counter = 0
 		agent.target_position = player.global_position
 
 	var dir = global_position - agent.get_next_path_position()
 	dir = dir.normalized()
-	dir *= delta * 300
+	dir *= delta * speed
 
 	position -= dir
 

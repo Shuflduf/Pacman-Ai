@@ -6,7 +6,7 @@ extends Node2D
 func _process(delta: float) -> void:
 	var dir = global_position - agent.get_next_path_position()
 	dir = dir.normalized()
-	dir *= delta * 300
+	dir *= delta * speed
 
 	position -= dir
 
