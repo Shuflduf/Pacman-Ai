@@ -76,7 +76,7 @@ color = Color(1, 0.885, 0.54, 1)
 
 [node name="Player" type="Node2D" groups=["Player"]]
 script = ExtResource("1_xvpjn")
-speed = 300
+speed = 281
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -90,7 +90,7 @@ shape = SubResource("RectangleShape2D_7a78i")
 scale = Vector2(1.82353, 1.82353)
 sprite_frames = SubResource("SpriteFrames_e6jf2")
 autoplay = "default"
-frame_progress = 0.863396
+frame_progress = 0.519125
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

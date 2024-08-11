@@ -10,6 +10,8 @@ var dead = true
 var last_dir: Vector2
 var streak = 0
 
+var speed_mult := 1.0
+
 func _process(delta: float) -> void:
 	if dead:
 		return
@@ -21,7 +23,7 @@ func _process(delta: float) -> void:
 
 	dir = dir.normalized()
 	last_dir = dir
-	dir *= delta * speed
+	dir *= delta * speed * speed_mult
 	sprite.rotation = atan2(last_dir.y, last_dir.x)
 	sprite.rotation += PI
 	position -= dir
@@ -47,6 +49,11 @@ func _on_dot_eater_area_entered(area: Area2D) -> void:
 			i.panicing = true
 			i.get_node("Body").modulate = Color.DARK_BLUE
 			i.timer.start()
+			i.speed_mult = 1.548
+			speed_mult = 1.06
+			get_tree().create_timer(5).timeout.connect(func(): speed_mult = 1)
+
+
 		points.emit(30)
 	else:
 		points.emit(10)
