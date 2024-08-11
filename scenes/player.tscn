@@ -90,7 +90,7 @@ shape = SubResource("RectangleShape2D_7a78i")
 scale = Vector2(1.82353, 1.82353)
 sprite_frames = SubResource("SpriteFrames_e6jf2")
 autoplay = "default"
-frame_progress = 0.76873
+frame_progress = 0.863396
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

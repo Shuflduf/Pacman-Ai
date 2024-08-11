@@ -10,9 +10,11 @@ var player: Node2D
 var counter: float
 var panicing = false
 var speed_mult = 1
+var saved_colour: Color
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	saved_colour = $Body.modulate
 	player = get_tree().get_first_node_in_group("Player")
 	counter += randf_range(0.0, 0.5)
 
@@ -54,6 +56,8 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if !panicing:
 		area.owner.die()
 	else:
+		collision_mask = 0
 		collision_layer = 0
 		$Body.hide()
 		speed_mult = 2
+

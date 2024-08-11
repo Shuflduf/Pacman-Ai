@@ -19,7 +19,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 45.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjv6p"]
-size = Vector2(416, 201)
+size = Vector2(324, 115)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_jhati")
