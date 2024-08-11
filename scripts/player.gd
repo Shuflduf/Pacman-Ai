@@ -22,3 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
 	position.x *= -1
+
+
+func _on_dot_eater_area_entered(area: Area2D) -> void:
+	area.owner.queue_free()
