@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://celcvehpgmj1n"]
+[gd_scene load_steps=5 format=3 uid="uid://celcvehpgmj1n"]
 
 [ext_resource type="Texture2D" uid="uid://crgpb4tyxtmba" path="res://Originalpacmaze.webp" id="1_0gch5"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_epqa8"]
+[ext_resource type="Texture2D" uid="uid://5u7poorruvvw" path="res://icon.svg" id="3_kp6vp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dbptg"]
 vertices = PackedVector2Array(746, -554, 534, -554, -534, -662, -426, -662, 854, 982, -854, 982, -150, 874, -42, 874, -746, 874, 426, 598, 342, 598, -150, 490, -42, 490, 998, 22, 534, 22, 426, -86, 534, -86, 746, 406, 534, 406, 234, 298, 342, 298, 234, -170, 54, -170, -150, -278, -42, -278, 746, -662, 746, -810, 854, -918, 854, -362, -150, 406, -426, 406, -342, 298, -234, 298, 42, -918, 534, -810, 746, -470, 534, -362, 534, -470, 746, 490, 854, 298, 854, 598, 726, 598, 534, 298, 426, 298, 854, 682, 746, 874, 746, 790, 726, 682, 426, 790, -854, 682, -746, 790, -726, 682, 234, -470, 234, -554, 342, -554, 342, -362, 150, -362, 42, -470, 42, -278, 150, -278, 234, 106, 342, 22, -534, -470, -534, -554, -426, -554, -426, -86, 426, 490, 426, 406, 534, 682, 150, 406, 42, 298, 42, 490, 150, 490, -426, 298, 234, 682, 234, 598, 342, 790, -234, 598, -426, 490, 150, 790, 42, 682, 42, 874, 150, 874, -534, 682, -534, 406, -426, 598, -426, 790, -618, 682, 618, 490, 618, 682, 998, -86, 426, -554, -234, -554, -234, -470, -42, -470, -150, -362, 342, -278, 342, -86, 426, 22, -342, -362, -342, -554, -342, -86, -342, -278, -234, -170, 54, -118, 182, -118, 182, 54, -182, 54, -182, -118, -54, -118, -54, -170, -234, 106, -42, 298, -234, 682, -42, 682, -150, 790, -342, 790, -342, 598, -746, 490, -618, 490, -726, 598, -854, 598, -854, 298, -746, 406, -534, 298, -534, 22, -966, 22, -966, -86, -534, -86, -342, 22, 534, -662, 426, -662, 426, -810, 150, -810, 42, -662, 150, -662, -746, -662, -746, -554, 234, 214, -234, 214, -426, 22, -42, -662, -150, -662, -42, -918, -150, -810, -854, -918, -426, -810, -534, -362, -746, -470, -854, -362, -746, -810, -534, -810)
@@ -9,6 +11,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-864, 992, 864, 992, 86
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_epqa8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -17,3 +20,12 @@ texture = ExtResource("1_0gch5")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_dbptg")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+position = Vector2(16, -224)
+texture = ExtResource("3_kp6vp")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.315, 0.315)
