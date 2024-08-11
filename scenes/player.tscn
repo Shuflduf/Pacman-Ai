@@ -56,7 +56,7 @@ speed = 300
 scale = Vector2(1.82353, 1.82353)
 sprite_frames = SubResource("SpriteFrames_e6jf2")
 autoplay = "default"
-frame_progress = 0.5449
+frame_progress = 0.237575
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

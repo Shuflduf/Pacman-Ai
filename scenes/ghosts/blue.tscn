@@ -7,5 +7,5 @@
 script = ExtResource("2_0jte7")
 corner = Vector2(800, 928)
 
-[node name="Sprite2D" parent="." index="0"]
-modulate = Color(0, 0.25, 1, 1)
+[node name="Body" parent="." index="5"]
+modulate = Color(0, 1, 1, 1)
