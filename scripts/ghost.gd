@@ -57,10 +57,22 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if !panicing:
 		area.owner.die()
 	else:
+		if !$Body.visible:
+			return
 		collision_mask = 0
 		collision_layer = 0
 		$Body.hide()
 		speed_mult = 2
+		area.owner.streak += 1
+		area.owner.points.emit(area.owner.streak * 100)
+		$TempLabel.text = str(area.owner.streak * 100)
+		$TempLabel.modulate.a = 1
+		$TempLabel.global_position = global_position
+		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		tween.tween_property($TempLabel, "position:y", $TempLabel.position.y - 100, 1)
+		tween.tween_property($TempLabel, "modulate:a", 0, 0.3)
+		$TempLabel.position.y = 0
+
 
 func come_back():
 	collision_mask = 3

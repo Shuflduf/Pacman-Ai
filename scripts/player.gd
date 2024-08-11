@@ -8,6 +8,7 @@ signal points(amount: int)
 
 var dead = true
 var last_dir: Vector2
+var streak = 0
 
 func _process(delta: float) -> void:
 	if dead:
@@ -42,6 +43,7 @@ func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
 func _on_dot_eater_area_entered(area: Area2D) -> void:
 	if area.owner.name.begins_with("BigDot"):
 		for i in get_tree().get_nodes_in_group("Ghost"):
+			streak = 0
 			i.panicing = true
 			i.get_node("Body").modulate = Color.DARK_BLUE
 			i.timer.start()

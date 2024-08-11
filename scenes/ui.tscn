@@ -2,12 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_5283g"]
 [ext_resource type="FontFile" uid="uid://c5r21yry57ga6" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="1_j2qpb"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_8chak"]
-font = ExtResource("1_j2qpb")
-font_size = 20
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="LabelSettings" uid="uid://d1vp6yf0wik1t" path="res://assets/ui.tres" id="2_jy6m4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8m46x"]
 font = ExtResource("1_j2qpb")
@@ -38,21 +33,21 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "SCORE: 9999"
-label_settings = SubResource("LabelSettings_8chak")
+label_settings = ExtResource("2_jy6m4")
 uppercase = true
 
 [node name="Name" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "PACMAN I THINK"
-label_settings = SubResource("LabelSettings_8chak")
+label_settings = ExtResource("2_jy6m4")
 uppercase = true
 
 [node name="BestScore" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "BEST: 9999"
-label_settings = SubResource("LabelSettings_8chak")
+label_settings = ExtResource("2_jy6m4")
 uppercase = true
 
 [node name="TimeLeft" type="Label" parent="."]

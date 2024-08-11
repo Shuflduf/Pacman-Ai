@@ -1,14 +1,21 @@
-[gd_scene load_steps=25 format=3 uid="uid://dm3xuufaixbmf"]
+[gd_scene load_steps=27 format=3 uid="uid://dm3xuufaixbmf"]
 
 [ext_resource type="Script" path="res://scripts/ghost.gd" id="1_det8e"]
+[ext_resource type="FontFile" uid="uid://c5r21yry57ga6" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="2_myqcv"]
 [ext_resource type="Texture2D" uid="uid://cvomnxrhevbug" path="res://assets/ghost-Sheet.png" id="2_pr222"]
 [ext_resource type="Texture2D" uid="uid://5x2ju0q7qxtx" path="res://assets/eyes_up.png" id="3_myq5p"]
 [ext_resource type="Texture2D" uid="uid://dlnuqgohyetkp" path="res://assets/eyes_down.png" id="4_q2r2v"]
 [ext_resource type="Texture2D" uid="uid://dvak4hy3parmh" path="res://assets/eyes_left.png" id="5_tg5la"]
 [ext_resource type="Texture2D" uid="uid://dy6xgpyxxlrc8" path="res://assets/eyes_right.png" id="6_bqt2d"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_46f87"]
+font = ExtResource("2_myqcv")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7fom"]
-size = Vector2(64, 112)
+size = Vector2(64, 80)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7m7sx"]
 animation = &"up"
@@ -157,6 +164,17 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_det8e")
 
+[node name="TempLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+offset_left = -39.5
+offset_top = -40.0
+offset_right = 39.5
+offset_bottom = 20.0
+text = "100"
+label_settings = SubResource("LabelSettings_46f87")
+horizontal_alignment = 1
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -182,7 +200,7 @@ libraries = {
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_yrm23")
 autoplay = "default"
-frame_progress = 0.522512
+frame_progress = 0.727795
 
 [node name="Eyes" type="Sprite2D" parent="."]
 position = Vector2(0, 8)

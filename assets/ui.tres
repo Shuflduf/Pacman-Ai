@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d1vp6yf0wik1t"]
+
+[ext_resource type="FontFile" uid="uid://c5r21yry57ga6" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="1_ieetl"]
+
+[resource]
+font = ExtResource("1_ieetl")
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
