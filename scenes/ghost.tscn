@@ -200,7 +200,7 @@ libraries = {
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_yrm23")
 autoplay = "default"
-frame_progress = 0.727795
+frame_progress = 0.480571
 
 [node name="Eyes" type="Sprite2D" parent="."]
 position = Vector2(0, 8)
