@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgpdsktgyrkny"]
+
+[ext_resource type="PackedScene" uid="uid://dm3xuufaixbmf" path="res://scenes/ghost.tscn" id="1_i2tea"]
+[ext_resource type="Script" path="res://scripts/ghosts/red.gd" id="2_tb1d7"]
+
+[node name="Red" instance=ExtResource("1_i2tea")]
+script = ExtResource("2_tb1d7")
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 0, 0, 1)

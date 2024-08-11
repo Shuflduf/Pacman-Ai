@@ -1,3 +1,4 @@
+class_name Ghost
 extends Node2D
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
@@ -16,7 +17,7 @@ func _process(delta: float) -> void:
 	counter += delta
 	if counter > 0.5:
 		counter = 0
-		agent.target_position = player.global_position
+		agent.target_position = set_target()
 
 	var dir = global_position - agent.get_next_path_position()
 	dir = dir.normalized()
@@ -27,3 +28,6 @@ func _process(delta: float) -> void:
 
 func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
 	position.x *= -1
+
+func set_target() -> Vector2:
+	return Vector2.ZERO
