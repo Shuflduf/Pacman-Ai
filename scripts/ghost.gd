@@ -19,6 +19,7 @@ var saved_colour: Color
 func _ready() -> void:
 	saved_colour = $Body.modulate
 	$GPUParticles2D.modulate = saved_colour
+	$Walk.modulate = saved_colour
 	player = get_tree().get_first_node_in_group("Player")
 	counter += randf_range(0.0, 0.5)
 
