@@ -74,6 +74,11 @@ func win():
 	$Player.win()
 
 	score += 1000
+	ui.score.text = "score: " + str(score)
+
+	if score > best_score:
+		best_score = score
+	ui.best_score.text = "best: " + str(best_score)
 
 
 	await $Win.finished

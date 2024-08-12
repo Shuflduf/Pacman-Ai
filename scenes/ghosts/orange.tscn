@@ -5,7 +5,10 @@
 
 [node name="Orange" instance=ExtResource("1_3fd48")]
 script = ExtResource("2_0jte7")
-corner = Vector2(-800, 928)
+speed = 200
 
-[node name="Body" parent="." index="5"]
+[node name="Body" parent="." index="7"]
 modulate = Color(1, 0.516667, 0, 1)
+
+[node name="Walk" parent="." index="12"]
+modulate = Color(1, 0.517647, 0, 1)

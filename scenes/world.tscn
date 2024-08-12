@@ -88,7 +88,6 @@ speed = 200
 position = Vector2(104, -32)
 collision_layer = 1
 collision_mask = 1
-speed = 200
 
 [node name="Blue" parent="Enemies" instance=ExtResource("6_pdnxy")]
 position = Vector2(-104, -32)

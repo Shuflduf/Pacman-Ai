@@ -17,6 +17,7 @@ config/use_custom_user_dir=true
 config/custom_user_dir_name="PacmanIThink"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+config/windows_native_icon="res://assets/image.ico"
 
 [display]
 

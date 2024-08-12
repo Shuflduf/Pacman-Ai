@@ -7,5 +7,5 @@
 script = ExtResource("2_tb1d7")
 corner = Vector2(800, -864)
 
-[node name="Body" parent="." index="6"]
+[node name="Body" parent="." index="7"]
 modulate = Color(1, 0, 0, 1)
