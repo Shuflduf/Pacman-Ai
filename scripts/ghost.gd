@@ -53,7 +53,7 @@ func set_target() -> Vector2:
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if !panicing:
+	if !panicing and $Body.visible:
 		area.owner.die()
 	else:
 		if !$Body.visible:
@@ -68,8 +68,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		$TempLabel.text = str(area.owner.streak * 100)
 		$TempLabel.modulate.a = 1
 		$TempLabel.global_position = global_position
-		Engine.time_scale = 0
+		Engine.time_scale = 0.1
 		get_tree().create_timer(0.2, true, true, true).timeout.connect(func(): Engine.time_scale = 1)
+
 		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		tween.tween_callback($GPUParticles2D.restart)
 		tween.tween_property($TempLabel, "position:y", $TempLabel.position.y - 100, 1)
@@ -81,10 +82,11 @@ func come_back():
 	collision_mask = 3
 	collision_layer = 3
 	$Body.show()
-	speed_mult = 1
+	#speed_mult = 1
 	_on_timer_timeout()
 
 func _on_timer_timeout() -> void:
 	panicing = false
-
+	if $Body.visible:
+		speed_mult = 1
 	$Body.modulate = saved_colour
