@@ -49,7 +49,7 @@ func _on_dot_eater_area_entered(area: Area2D) -> void:
 			i.panicing = true
 			i.get_node("Body").modulate = Color.DARK_BLUE
 			i.timer.start()
-			i.speed_mult = 1.548
+			i.speed_mult = 0.647
 			speed_mult = 1.06
 			get_tree().create_timer(5).timeout.connect(func(): speed_mult = 1)
 

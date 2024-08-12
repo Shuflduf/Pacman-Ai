@@ -30,6 +30,10 @@ texture_filter = 1
 scale = Vector2(8, 8)
 texture = ExtResource("2_432ku")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("9_e7ogw")]
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_dbptg")
@@ -812,10 +816,6 @@ position = Vector2(-800, 480)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(800, 928)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" parent="CanvasLayer" instance=ExtResource("9_e7ogw")]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

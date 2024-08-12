@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 		counter = 0
 		if !$Body.visible:
 			agent.target_position = Vector2.ZERO
-		if panicing:
+		elif panicing:
 			agent.target_position = corner
 		else:
 			agent.target_position = set_target()
@@ -77,9 +77,10 @@ func come_back():
 	collision_mask = 3
 	collision_layer = 3
 	$Body.show()
+	speed_mult = 1
 	_on_timer_timeout()
 
 func _on_timer_timeout() -> void:
 	panicing = false
-	speed_mult = 1
+
 	$Body.modulate = saved_colour
