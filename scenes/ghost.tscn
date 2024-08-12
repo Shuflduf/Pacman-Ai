@@ -228,8 +228,7 @@ sprite_frames = SubResource("SpriteFrames_yrm23")
 autoplay = "default"
 frame_progress = 0.866887
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Body"]
-scale = Vector2(0.25, 0.25)
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_b22p3")

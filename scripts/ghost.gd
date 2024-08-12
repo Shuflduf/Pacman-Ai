@@ -16,6 +16,7 @@ var saved_colour: Color
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	saved_colour = $Body.modulate
+	$GPUParticles2D.modulate = saved_colour
 	player = get_tree().get_first_node_in_group("Player")
 	counter += randf_range(0.0, 0.5)
 
@@ -68,6 +69,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		$TempLabel.modulate.a = 1
 		$TempLabel.global_position = global_position
 		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		tween.tween_callback($GPUParticles2D.restart)
 		tween.tween_property($TempLabel, "position:y", $TempLabel.position.y - 100, 1)
 		tween.tween_property($TempLabel, "modulate:a", 0, 0.3)
 
