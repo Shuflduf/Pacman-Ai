@@ -18,7 +18,9 @@ func _ready() -> void:
 	ui.best_score.text = "best: " + str(best_score)
 
 	randomize()
-	await get_tree().create_timer(0.5).timeout
+	$Startup.play()
+	await $Startup.finished
+	await get_tree().create_timer(0.2).timeout
 	find_child("Player").dead = false
 	find_child("Player").points.connect(add_points)
 

@@ -64,9 +64,11 @@ func _on_dot_eater_area_entered(area: Area2D) -> void:
 	area.owner.queue_free()
 
 func die():
+	$WakaWaka.stop()
 	dead = true
 	await get_tree().create_timer(0.5).timeout
 	$GPUParticles2D.restart()
+	$Death.play()
 	sprite.hide()
 	await $GPUParticles2D.finished
 	await get_tree().create_timer(0.5).timeout

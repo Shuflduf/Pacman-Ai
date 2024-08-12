@@ -58,6 +58,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	else:
 		if !$Body.visible:
 			return
+		$Death.play()
 		collision_mask = 0
 		collision_layer = 0
 		$Body.hide()

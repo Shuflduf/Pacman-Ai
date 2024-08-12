@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dm3xuufaixbmf"]
+[gd_scene load_steps=31 format=3 uid="uid://dm3xuufaixbmf"]
 
 [ext_resource type="Script" path="res://scripts/ghost.gd" id="1_det8e"]
 [ext_resource type="FontFile" uid="uid://c5r21yry57ga6" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="2_myqcv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dlnuqgohyetkp" path="res://assets/eyes_down.png" id="4_q2r2v"]
 [ext_resource type="Texture2D" uid="uid://dvak4hy3parmh" path="res://assets/eyes_left.png" id="5_tg5la"]
 [ext_resource type="Texture2D" uid="uid://dy6xgpyxxlrc8" path="res://assets/eyes_right.png" id="6_bqt2d"]
+[ext_resource type="AudioStream" uid="uid://cq38a5lqw6wc4" path="res://assets/sounds/ghost_death.ogg" id="8_eghq3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_46f87"]
 font = ExtResource("2_myqcv")
@@ -242,6 +243,9 @@ texture = ExtResource("4_q2r2v")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_eghq3")
 
 [connection signal="link_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_link_reached"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
