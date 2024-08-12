@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dm3xuufaixbmf"]
+[gd_scene load_steps=30 format=3 uid="uid://dm3xuufaixbmf"]
 
 [ext_resource type="Script" path="res://scripts/ghost.gd" id="1_det8e"]
 [ext_resource type="FontFile" uid="uid://c5r21yry57ga6" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="2_myqcv"]
@@ -159,6 +159,31 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Curve" id="Curve_3lka3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.812245, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4na38"]
+curve = SubResource("Curve_3lka3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b22p3"]
+lifetime_randomness = 1.0
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 32.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+flatness = 0.5
+initial_velocity_min = 36.76
+initial_velocity_max = 80.88
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+scale_min = 20.0
+scale_max = 30.0
+scale_curve = SubResource("CurveTexture_4na38")
+
 [node name="Ghost" type="CharacterBody2D" groups=["Ghost"]]
 collision_layer = 4
 collision_mask = 4
@@ -202,6 +227,14 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_yrm23")
 autoplay = "default"
 frame_progress = 0.866887
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Body"]
+scale = Vector2(0.25, 0.25)
+emitting = false
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_b22p3")
+one_shot = true
+explosiveness = 1.0
 
 [node name="Eyes" type="Sprite2D" parent="."]
 position = Vector2(0, 8)
