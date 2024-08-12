@@ -97,8 +97,6 @@ collision_mask = 1
 speed = 200
 
 [node name="Dots" type="Node2D" parent="."]
-visible = false
-position = Vector2(2000, 0)
 
 [node name="Dot" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(-800, -864)
@@ -822,11 +820,6 @@ position = Vector2(480, 160)
 
 [node name="Dot247" parent="Dots" instance=ExtResource("4_ip0l2")]
 position = Vector2(544, 352)
-
-[node name="Dots2" type="Node2D" parent="."]
-
-[node name="Dot" parent="Dots2" instance=ExtResource("4_ip0l2")]
-position = Vector2(-800, -864)
 
 [node name="BigDots" type="Node2D" parent="."]
 

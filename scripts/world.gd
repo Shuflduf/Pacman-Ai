@@ -53,7 +53,7 @@ func add_points(amount: int):
 	ui.best_score.text = "best: " + str(best_score)
 
 	#var pellet = true if amount == 10 or amount == 30 else false
-	if $Dots2.get_child_count() <= (1 if amount == 10 else 0):
+	if $Dots.get_child_count() <= (1 if amount == 10 else 0):
 		if $BigDots.get_child_count() <= (1 if amount == 30 else 0):
 			print("WIN AHHH")
 			$Win.play()
