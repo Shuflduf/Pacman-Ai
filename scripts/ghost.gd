@@ -69,7 +69,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		$TempLabel.modulate.a = 1
 		$TempLabel.global_position = global_position
 		Engine.time_scale = 0
-		get_tree().create_timer(0.4, true, false, true).timeout.connect(func(): Engine.time_scale = 1)
+		get_tree().create_timer(0.2, true, true, true).timeout.connect(func(): Engine.time_scale = 1)
 		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 		tween.tween_callback($GPUParticles2D.restart)
 		tween.tween_property($TempLabel, "position:y", $TempLabel.position.y - 100, 1)
