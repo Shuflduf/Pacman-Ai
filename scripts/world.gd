@@ -21,8 +21,16 @@ func _ready() -> void:
 	$Startup.play()
 	await $Startup.finished
 	await get_tree().create_timer(0.2).timeout
-	find_child("Player").dead = false
-	find_child("Player").points.connect(add_points)
+	$Player.dead = false
+	$Player.points.connect(add_points)
+	$Player.teleported.connect(func():
+		$LeftPortal.restart()
+		$RightPortal.restart())
+	for i in $Enemies.get_children():
+		i.teleported.connect(func():
+			$LeftPortal.restart()
+			$RightPortal.restart())
+
 
 func add_points(amount: int):
 
@@ -30,6 +38,9 @@ func add_points(amount: int):
 		if FileAccess.file_exists("user://points"):
 			var best_score_bits = FileAccess.get_file_as_string("user://points")
 			best_score = best_score_bits.to_int()
+
+	if $Dots.get_child_count() <= 0 and $BigDots.get_child_count() <= 0:
+		$Player.win()
 
 	if amount == 30:
 		ui.start_timer()

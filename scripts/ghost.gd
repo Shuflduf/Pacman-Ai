@@ -1,6 +1,8 @@
 class_name Ghost
 extends CharacterBody2D
 
+signal teleported
+
 @onready var timer: Timer = $Timer
 @onready var tree: AnimationTree = $AnimationTree
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
@@ -46,6 +48,7 @@ func _process(delta: float) -> void:
 
 
 func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
+	teleported.emit()
 	position.x *= -1
 
 func set_target() -> Vector2:

@@ -5,6 +5,7 @@ extends Node2D
 @export var speed = 200
 
 signal points(amount: int)
+signal teleported
 
 var dead = true
 var last_dir: Vector2
@@ -43,6 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_navigation_agent_2d_link_reached(_details: Dictionary) -> void:
+	teleported.emit()
 	position.x *= -1
 
 
@@ -61,7 +63,7 @@ func _on_dot_eater_area_entered(area: Area2D) -> void:
 		points.emit(30)
 	else:
 		points.emit(10)
-	area.owner.queue_free()
+	area.owner.die()
 
 func die():
 	$WakaWaka.stop()
@@ -74,3 +76,6 @@ func die():
 	await get_tree().create_timer(0.5).timeout
 	get_parent().reset()
 
+func win():
+	dead = true
+	$WakaWaka.stop()
