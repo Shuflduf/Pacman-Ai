@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxh2egwk5bftk"]
+[gd_scene load_steps=15 format=3 uid="uid://bxh2egwk5bftk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xvpjn"]
 [ext_resource type="Texture2D" uid="uid://cmbeef2myi45c" path="res://assets/pacman-Sheet.png" id="2_k453q"]
+[ext_resource type="AudioStream" uid="uid://bt3vsqi3t3h62" path="res://assets/sounds/powerup.ogg" id="3_mvrtc"]
+[ext_resource type="AudioStream" uid="uid://chuqt0vrrgswa" path="res://assets/sounds/death.ogg" id="4_oynm3"]
+[ext_resource type="AudioStream" uid="uid://i363bkof52vc" path="res://assets/sounds/wakawaka.ogg" id="5_dfhs0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a78i"]
 size = Vector2(64, 64)
@@ -98,6 +101,15 @@ amount = 128
 process_material = SubResource("ParticleProcessMaterial_c072k")
 one_shot = true
 explosiveness = 1.0
+
+[node name="Powerup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mvrtc")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_oynm3")
+
+[node name="WakaWaka" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dfhs0")
 
 [connection signal="link_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_link_reached"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_dot_eater_area_entered"]

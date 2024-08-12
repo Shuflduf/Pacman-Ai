@@ -19,7 +19,11 @@ func _process(delta: float) -> void:
 	var dir = global_position - agent.get_next_path_position()
 
 	if dir.length_squared() < 1.0:
+		$WakaWaka.stop()
 		return
+
+	if !$WakaWaka.playing:
+		$WakaWaka.play()
 
 	dir = dir.normalized()
 	last_dir = dir
