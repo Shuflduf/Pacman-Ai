@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxh2egwk5bftk"]
+[gd_scene load_steps=14 format=3 uid="uid://bxh2egwk5bftk"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_xvpjn"]
 [ext_resource type="Texture2D" uid="uid://cmbeef2myi45c" path="res://assets/pacman-Sheet.png" id="2_k453q"]
@@ -9,42 +9,32 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a78i"]
 size = Vector2(64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0olfe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p2ib"]
 atlas = ExtResource("2_k453q")
-region = Rect2(0, 0, 34, 34)
+region = Rect2(0, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_30rmg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf6el"]
 atlas = ExtResource("2_k453q")
-region = Rect2(34, 0, 34, 34)
+region = Rect2(8, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_psxig"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbbwl"]
 atlas = ExtResource("2_k453q")
-region = Rect2(68, 0, 34, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_emiqn"]
-atlas = ExtResource("2_k453q")
-region = Rect2(102, 0, 34, 34)
+region = Rect2(16, 0, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e6jf2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0olfe")
+"texture": SubResource("AtlasTexture_0p2ib")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_30rmg")
+"texture": SubResource("AtlasTexture_vf6el")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_psxig")
+"texture": SubResource("AtlasTexture_tbbwl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_emiqn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_psxig")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_30rmg")
+"texture": SubResource("AtlasTexture_vf6el")
 }],
 "loop": true,
 "name": &"default",
@@ -90,10 +80,10 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_7a78i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.82353, 1.82353)
+scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_e6jf2")
 autoplay = "default"
-frame_progress = 0.519125
+frame_progress = 0.0734314
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

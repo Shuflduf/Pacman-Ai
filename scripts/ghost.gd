@@ -4,7 +4,6 @@ extends CharacterBody2D
 signal teleported
 
 @onready var timer: Timer = $Timer
-@onready var tree: AnimationTree = $AnimationTree
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @export var speed = 200
 @export var corner = Vector2.ZERO
@@ -42,7 +41,8 @@ func _process(delta: float) -> void:
 
 	var dir = global_position - agent.get_next_path_position()
 	dir = -dir.normalized()
-	tree.set("parameters/blend_position", dir * Vector2(1, -1))
+	$Horizontal.set("parameters/blend_position", dir.x)
+	$Vertical.set("parameters/blend_position", -dir.y)
 	velocity = dir * speed * speed_mult
 
 	move_and_slide()

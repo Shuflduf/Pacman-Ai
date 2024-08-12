@@ -1,12 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://dm3xuufaixbmf"]
+[gd_scene load_steps=29 format=3 uid="uid://dm3xuufaixbmf"]
 
 [ext_resource type="Script" path="res://scripts/ghost.gd" id="1_det8e"]
 [ext_resource type="FontFile" uid="uid://c5r21yry57ga6" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="2_myqcv"]
-[ext_resource type="Texture2D" uid="uid://cvomnxrhevbug" path="res://assets/ghost-Sheet.png" id="2_pr222"]
 [ext_resource type="Texture2D" uid="uid://5x2ju0q7qxtx" path="res://assets/eyes_up.png" id="3_myq5p"]
 [ext_resource type="Texture2D" uid="uid://dlnuqgohyetkp" path="res://assets/eyes_down.png" id="4_q2r2v"]
-[ext_resource type="Texture2D" uid="uid://dvak4hy3parmh" path="res://assets/eyes_left.png" id="5_tg5la"]
-[ext_resource type="Texture2D" uid="uid://dy6xgpyxxlrc8" path="res://assets/eyes_right.png" id="6_bqt2d"]
+[ext_resource type="Texture2D" uid="uid://b3fec0nvmao5l" path="res://assets/eyes_side.png" id="5_t7qi4"]
+[ext_resource type="Texture2D" uid="uid://ch6o3pbj52oxr" path="res://assets/ghost.png" id="6_tbu4a"]
 [ext_resource type="AudioStream" uid="uid://cq38a5lqw6wc4" path="res://assets/sounds/ghost_death.ogg" id="8_eghq3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_46f87"]
@@ -18,32 +17,40 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7fom"]
 size = Vector2(56, 72)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7m7sx"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uah8o"]
 animation = &"up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8djid"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6e20c"]
+animation = &"side"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bvbw8"]
 animation = &"down"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dcb1b"]
-animation = &"left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jbsfm"]
-animation = &"right"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_5jdb8"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_7m7sx")
-blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_8djid")
-blend_point_1/pos = Vector2(0, -1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_dcb1b")
-blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_jbsfm")
-blend_point_3/pos = Vector2(1, 0)
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_b3v7p"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_uah8o")
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_6e20c")
+blend_point_1/pos = 0.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_bvbw8")
+blend_point_2/pos = -1.0
 blend_mode = 1
-sync = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ybjl6"]
+animation = &"flip_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8plcr"]
+animation = &"flip_right"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_jldyv"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ybjl6")
+blend_point_0/pos = -0.1
+blend_point_1/node = SubResource("AnimationNodeAnimation_8plcr")
+blend_point_1/pos = 0.1
+blend_mode = 1
 
 [sub_resource type="Animation" id="Animation_8yqv6"]
 resource_name = "down"
+length = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -57,38 +64,9 @@ tracks/0/keys = {
 "values": [ExtResource("4_q2r2v")]
 }
 
-[sub_resource type="Animation" id="Animation_33nq2"]
-resource_name = "left"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Eyes:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_tg5la")]
-}
-
-[sub_resource type="Animation" id="Animation_nhgs6"]
-resource_name = "right"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Eyes:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_bqt2d")]
-}
-
 [sub_resource type="Animation" id="Animation_hb4ou"]
 resource_name = "up"
+length = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -102,63 +80,62 @@ tracks/0/keys = {
 "values": [ExtResource("3_myq5p")]
 }
 
+[sub_resource type="Animation" id="Animation_33nq2"]
+resource_name = "side"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyes:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_t7qi4")]
+}
+
+[sub_resource type="Animation" id="Animation_qmncr"]
+resource_name = "flip_left"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyes:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0h1r6"]
+resource_name = "flip_right"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyes:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o5xrb"]
 _data = {
 "down": SubResource("Animation_8yqv6"),
-"left": SubResource("Animation_33nq2"),
-"right": SubResource("Animation_nhgs6"),
+"flip_left": SubResource("Animation_qmncr"),
+"flip_right": SubResource("Animation_0h1r6"),
+"side": SubResource("Animation_33nq2"),
 "up": SubResource("Animation_hb4ou")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cs0um"]
-atlas = ExtResource("2_pr222")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jafch"]
-atlas = ExtResource("2_pr222")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1b58y"]
-atlas = ExtResource("2_pr222")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ksfr5"]
-atlas = ExtResource("2_pr222")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3g7ja"]
-atlas = ExtResource("2_pr222")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1icn"]
-atlas = ExtResource("2_pr222")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_yrm23"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cs0um")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jafch")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1b58y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ksfr5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3g7ja")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u1icn")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
 
 [sub_resource type="Curve" id="Curve_3lka3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.812245, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -186,8 +163,9 @@ scale_max = 30.0
 scale_curve = SubResource("CurveTexture_4na38")
 
 [sub_resource type="Curve" id="Curve_itw0h"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.22449, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
+max_value = 3.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0734694, 3), 0.0, 0.0, 0, 0, Vector2(0.383674, 1.08791), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CurveTexture" id="CurveTexture_hqj2o"]
 curve = SubResource("Curve_itw0h")
@@ -230,21 +208,25 @@ shape = SubResource("RectangleShape2D_g7fom")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g7fom")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendSpace2D_5jdb8")
+[node name="Vertical" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendSpace1D_b3v7p")
 anim_player = NodePath("../AnimationPlayer")
-parameters/blend_position = Vector2(0.0207769, -0.676596)
+parameters/blend_position = 0.700589
+
+[node name="Horizontal" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendSpace1D_jldyv")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = 0.00420523
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_o5xrb")
 }
 
-[node name="Body" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_yrm23")
-autoplay = "default"
-frame_progress = 0.866887
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, 7)
+scale = Vector2(14, 14)
+texture = ExtResource("6_tbu4a")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
@@ -254,9 +236,10 @@ one_shot = true
 explosiveness = 1.0
 
 [node name="Eyes" type="Sprite2D" parent="."]
-position = Vector2(0, 8)
-scale = Vector2(5, 5)
-texture = ExtResource("4_q2r2v")
+position = Vector2(0, 7)
+scale = Vector2(14, 14)
+texture = ExtResource("3_myq5p")
+flip_h = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -265,8 +248,10 @@ wait_time = 5.0
 stream = ExtResource("8_eghq3")
 
 [node name="Walk" type="GPUParticles2D" parent="."]
+z_index = -1
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_ori0u")
+fixed_fps = 60
 
 [connection signal="link_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_link_reached"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvomnxrhevbug"
-path="res://.godot/imported/ghost-Sheet.png-a55a1c39be370016d051e1db9e9c5b73.ctex"
+uid="uid://b3fec0nvmao5l"
+path="res://.godot/imported/eyes_side.png-cb9587190ac1f8b5129f83926eb2342a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ghost-Sheet.png"
-dest_files=["res://.godot/imported/ghost-Sheet.png-a55a1c39be370016d051e1db9e9c5b73.ctex"]
+source_file="res://assets/eyes_side.png"
+dest_files=["res://.godot/imported/eyes_side.png-cb9587190ac1f8b5129f83926eb2342a.ctex"]
 
 [params]
 
