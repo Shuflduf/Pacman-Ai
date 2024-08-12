@@ -251,6 +251,8 @@ stream = ExtResource("8_eghq3")
 z_index = -1
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_ori0u")
+lifetime = 1.5
+preprocess = 1.0
 fixed_fps = 60
 
 [connection signal="link_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_link_reached"]

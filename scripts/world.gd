@@ -55,12 +55,7 @@ func add_points(amount: int):
 	#var pellet = true if amount == 10 or amount == 30 else false
 	if $Dots.get_child_count() <= (1 if amount == 10 else 0):
 		if $BigDots.get_child_count() <= (1 if amount == 30 else 0):
-			print("WIN AHHH")
-			$Win.play()
-			$Player.win()
-			await $Win.finished
-			await get_tree().create_timer(0.2).timeout
-			reset()
+			win()
 
 func reset():
 
@@ -73,3 +68,14 @@ func reset():
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	area.owner.come_back()
+
+func win():
+	$Win.play()
+	$Player.win()
+
+	score += 1000
+
+
+	await $Win.finished
+	await get_tree().create_timer(0.2).timeout
+	reset()
