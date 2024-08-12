@@ -40,6 +40,7 @@ func add_points(amount: int):
 			best_score = best_score_bits.to_int()
 
 	if $Dots.get_child_count() <= 0 and $BigDots.get_child_count() <= 0:
+		$Win.play()
 		$Player.win()
 
 	if amount == 30:
