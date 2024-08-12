@@ -39,12 +39,11 @@ func add_points(amount: int):
 			var best_score_bits = FileAccess.get_file_as_string("user://points")
 			best_score = best_score_bits.to_int()
 
-	if $Dots.get_child_count() <= 0 and $BigDots.get_child_count() <= 0:
-		$Win.play()
-		$Player.win()
+
 
 	if amount == 30:
 		ui.start_timer()
+
 
 	score += amount
 	ui.score.text = "score: " + str(score)
@@ -52,6 +51,16 @@ func add_points(amount: int):
 	if score > best_score:
 		best_score = score
 	ui.best_score.text = "best: " + str(best_score)
+
+	#var pellet = true if amount == 10 or amount == 30 else false
+	if $Dots2.get_child_count() <= (1 if amount == 10 else 0):
+		if $BigDots.get_child_count() <= (1 if amount == 30 else 0):
+			print("WIN AHHH")
+			$Win.play()
+			$Player.win()
+			await $Win.finished
+			await get_tree().create_timer(0.2).timeout
+			reset()
 
 func reset():
 
